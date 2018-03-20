@@ -1,0 +1,19 @@
+{
+  "name": "meadowlark.js",
+  "version": "1.0.0",
+  "description": "Travel Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peteryefi/travel.git"
+  },
+  "author": "Peter Yefi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peteryefi/travel/issues"
+  },
+  "homepage": "https://github.com/peteryefi/travel#readme"
+}
