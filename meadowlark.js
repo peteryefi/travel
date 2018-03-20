@@ -4,6 +4,17 @@ const app = express();
 
 app.set('port', process.env.PORT || 3000);
 
+
+app.get('/', function(req, res){
+	res.type('text/plain');
+	res.send('Meadowlark Travel');
+});
+
+app.get('/about', function(res, res){
+	res.type('text/plain');
+	res.send('About Meadowlark Travel');
+});
+
 //custome 404 page
 
 app.use(function(req, res){
@@ -19,6 +30,8 @@ app.use(function(err, req, res, next){
 	res.status(500);
 	res.send('500 - Server Error');
 });
+
+
 
 app.listen(app.get('port'), function(){
 	console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate');
