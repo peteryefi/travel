@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/peteryefi/travel/issues"
   },
-  "homepage": "https://github.com/peteryefi/travel#readme"
+  "homepage": "https://github.com/peteryefi/travel#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
