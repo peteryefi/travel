@@ -1,6 +1,6 @@
-const express = require('express');
+var express = require('express');
 
-const app = express();
+var app = express();
 
 //set up handlebars view engine
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
@@ -27,12 +27,24 @@ app.get('/', function(req, res){
 //require fortune script
 var fortune = require('./lib/fortune.js');
 
-app.get('/about', function(res, res){
+app.get('/about', function(res, req){
 	
 	res.render('about', {
 		fortune: fortune.getFortune(),
 		pageTestScript: '/qa/tests-about.js'
 	});
+});
+
+app.get('/tours/hood-river', function(req, res){
+	res.render('tours/hood-river');
+});
+
+app.get('/tours/request-group-rate', function(req, res){
+	res.render('tours/request-group-rate');
+});
+
+app.get('/tours/oregon-coast', function(req, res){
+	res.render('tours/oregon-coast');
 });
 
 //custom 404 page
