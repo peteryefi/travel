@@ -10,6 +10,10 @@ var jqupload = require('jquery-file-upload-middleware');
 
 var credentials = require('./credentials.js');
 
+var connect = require('connect');
+
+app.use(connect.compress);
+
 app.use(require('cookie-parser')(credentials.cookieSecret));
 
 app.use(require('express-session')());
@@ -51,6 +55,7 @@ app.use(function(req, res, next){
 app.use(function(req, res, next){
 	res.locals.flash = req.session.flash;
 	delete req.session.flash;
+	next();
 });
 
 
@@ -108,7 +113,6 @@ app.get('/about', function(req, res){
 });
 
 app.get('/jquery-test', function(req, res){
-	
 	res.render('jquery-test');
 });
 
@@ -224,6 +228,12 @@ app.use('/upload', function(req, res, next){
 		},
 	})(req, res, next);
 });
+
+
+//use cart validation as a middleware
+var cartValidation = require('./lib/cartValidation.js');
+app.use(cartValidation.checkWaivers);
+app.use(cartValidation.checkGuestCounts);
 
 //custom 404 page
 app.use(function(req, res){
